@@ -23,6 +23,11 @@ import java.util.Queue;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicLong;
 
+/**
+ * Reads a CSV stream, parses and validates every row, and builds an
+ * in-memory ProjectMap of valid records. A single reader batches rows into
+ * a bounded queue while N parallel workers consume them.
+ */
 @Service
 public class CsvIngestService {
 

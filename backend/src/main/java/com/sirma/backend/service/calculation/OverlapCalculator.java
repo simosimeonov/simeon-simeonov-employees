@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Computes the intersection of two working periods.
+ */
 @Component
 public class OverlapCalculator {
 

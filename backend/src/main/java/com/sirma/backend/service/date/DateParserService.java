@@ -7,6 +7,10 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Optional;
 
+/**
+ * Parses raw date strings into LocalDate.
+ * Delegates to DateCache and DateFormatTree.
+ */
 @Service
 public class DateParserService {
 

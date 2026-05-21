@@ -6,6 +6,13 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+/**
+ * Indexes date formatters by their shape signature at startup, so parse-time
+ * lookups return one or two candidates instead of trying all ten. The
+ * signature collapses digit runs to D, letter runs to A, and keeps
+ * separators as-is (e.g. "2014-01-05" becomes "D4-D2-D2", "5 Jan 2014"
+ * becomes "D1 A D4").
+ */
 @Component
 public class DateFormatTree {
 

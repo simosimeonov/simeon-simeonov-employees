@@ -7,6 +7,10 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 import java.util.Optional;
 
+/**
+ * Validates a single CSV row and returns ParseOutcome.Valid with parsed
+ * fields, or ParseOutcome.Invalid with the reason of the first failure.
+ */
 @Component
 public class RowValidator {
 

@@ -15,6 +15,12 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
+/**
+ * Finds the employee pairs that worked together the
+ * longest on a single project, computing per-project overlaps in parallel.
+ * Returns every aggregate tied with the maximum totalDays, sorted by
+ * (employee1, employee2, projectId). Empty list if no pair has any overlap.
+ */
 @Service
 public class PairFinderService {
 

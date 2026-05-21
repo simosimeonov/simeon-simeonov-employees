@@ -10,6 +10,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
 
+/**
+ * Computes every employee-pair overlap on a single project. Pairs each user
+ * with every other user once, asks OverlapCalculator how many days
+ * their working periods intersect, and returns a local map of pair to
+ * overlap entries.
+ */
 public class ProjectPairsTask implements Callable<Map<PairKey, List<OverlapResult>>> {
 
     private final int projectId;

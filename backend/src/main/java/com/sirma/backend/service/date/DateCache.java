@@ -8,6 +8,12 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 
+/**
+ * Thread-safe memoization for date parsing. Caches both successful and
+ * unparsable results, so repeated lookups for the same raw
+ * string skip the parser entirely. When capacity is reached, the whole cache
+ * is cleared.
+ */
 @Component
 public class DateCache {
 
