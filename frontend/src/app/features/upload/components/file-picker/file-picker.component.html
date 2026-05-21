@@ -1,0 +1,38 @@
+<mat-card appearance="outlined">
+  <mat-card-content class="file-picker">
+    <input
+      #fileInput
+      type="file"
+      accept=".csv,text/csv"
+      hidden
+      [disabled]="disabled()"
+      (change)="onFileChange($event)" />
+
+    <button
+      mat-stroked-button
+      type="button"
+      [disabled]="disabled()"
+      (click)="fileInput.click()"
+      aria-label="Choose CSV file">
+      <mat-icon>upload_file</mat-icon>
+      Choose CSV
+    </button>
+
+    @if (file(); as f) {
+      <span data-testid="filename">
+        {{ f.name }} <small>({{ f.size | number }} bytes)</small>
+      </span>
+      <button
+        mat-flat-button
+        color="primary"
+        type="button"
+        [disabled]="disabled()"
+        (click)="triggerSubmit()"
+        data-testid="submit-button">
+        Upload
+      </button>
+    } @else {
+      <span>No file selected</span>
+    }
+  </mat-card-content>
+</mat-card>

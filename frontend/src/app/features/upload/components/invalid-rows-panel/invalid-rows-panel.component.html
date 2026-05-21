@@ -1,0 +1,29 @@
+@if (rows().length > 0) {
+  <mat-expansion-panel class="invalid-panel">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Invalid rows ({{ rows().length }})
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <table mat-table [dataSource]="rows()" class="invalid-table">
+      <ng-container matColumnDef="line">
+        <th mat-header-cell *matHeaderCellDef>Line</th>
+        <td mat-cell *matCellDef="let r">{{ r.lineNumber }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="reason">
+        <th mat-header-cell *matHeaderCellDef>Reason</th>
+        <td mat-cell *matCellDef="let r">{{ r.reason }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="raw">
+        <th mat-header-cell *matHeaderCellDef>Raw line</th>
+        <td mat-cell *matCellDef="let r"><code>{{ r.rawLine }}</code></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columns"></tr>
+      <tr mat-row *matRowDef="let r; columns: columns"></tr>
+    </table>
+  </mat-expansion-panel>
+}

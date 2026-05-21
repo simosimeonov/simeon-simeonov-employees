@@ -1,0 +1,9 @@
+<mat-card appearance="outlined">
+  <mat-card-content class="stats-bar">
+    <span><strong>Total:</strong> {{ stats().totalRows }}</span>
+    <span><strong>Valid:</strong> {{ stats().validRows }}</span>
+    <span><strong>Invalid:</strong> {{ stats().invalidRows }}</span>
+    <span><strong>Projects:</strong> {{ stats().projectsProcessed }}</span>
+    <span><strong>Elapsed:</strong> {{ stats().elapsedMs }} ms</span>
+  </mat-card-content>
+</mat-card>

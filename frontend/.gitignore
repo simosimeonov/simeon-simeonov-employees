@@ -1,0 +1,30 @@
+# Compiled output
+/dist
+/tmp
+/out-tsc
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Misc
+/.angular/cache
+.sass-cache/
+connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System
+.DS_Store
+Thumbs.db

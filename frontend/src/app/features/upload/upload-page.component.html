@@ -1,0 +1,51 @@
+<main class="page">
+  <header class="page-header">
+    <h1>Employee Pair Longest Collaboration</h1>
+  </header>
+
+  <section>
+    <app-file-picker
+      [file]="store.selectedFile()"
+      [disabled]="store.loading()"
+      (fileSelected)="onFileSelected($event)"
+      (submitted)="onSubmit()" />
+  </section>
+
+  @if (store.loading()) {
+    <mat-progress-bar mode="indeterminate" data-testid="progress" />
+  }
+
+  @if (store.error(); as err) {
+    <mat-card appearance="outlined" class="error-banner" role="alert" data-testid="error">
+      <mat-card-content>
+        <strong>Error {{ err.status }}:</strong> {{ err.error }}
+        @if (err.traceId) {
+          <small class="trace">trace: {{ err.traceId }}</small>
+        }
+      </mat-card-content>
+    </mat-card>
+  }
+
+  @if (store.response(); as resp) {
+    <section class="results" data-testid="results">
+      <app-stats-bar [stats]="resp.stats" />
+
+      <app-invalid-rows-panel [rows]="resp.invalidRows" />
+
+      <div class="results-header">
+        <h2>Common projects breakdown</h2>
+        <button mat-stroked-button type="button" (click)="onReset()">
+          <mat-icon>refresh</mat-icon>
+          New upload
+        </button>
+      </div>
+
+      @if (resp.topPairs.length === 0) {
+        <mat-card appearance="outlined" class="empty">
+          <mat-card-content>No overlapping pairs were found in this dataset.</mat-card-content>
+        </mat-card>
+      }
+      <app-employees-breakdown-table [pairs]="resp.topPairs" />
+    </section>
+  }
+</main>

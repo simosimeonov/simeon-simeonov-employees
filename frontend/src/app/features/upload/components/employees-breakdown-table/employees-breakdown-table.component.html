@@ -1,0 +1,42 @@
+<mat-card appearance="outlined" class="breakdown-card">
+    <mat-card-header>
+        <mat-card-title>Common projects breakdown</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <table mat-table [dataSource]="rows()" class="breakdown-table">
+            <ng-container matColumnDef="employee1">
+                <th mat-header-cell *matHeaderCellDef>Employee ID #1</th>
+                <td mat-cell *matCellDef="let row">{{ row.employee1 }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="employee2">
+                <th mat-header-cell *matHeaderCellDef>Employee ID #2</th>
+                <td mat-cell *matCellDef="let row">{{ row.employee2 }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="projectId">
+                <th mat-header-cell *matHeaderCellDef>Project ID</th>
+                <td mat-cell *matCellDef="let row">{{ row.projectId }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="period">
+                <th mat-header-cell *matHeaderCellDef>Period</th>
+                <td mat-cell *matCellDef="let row">{{ row.dateFrom }} &rarr; {{ row.dateTo }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="days">
+                <th mat-header-cell *matHeaderCellDef>Days worked</th>
+                <td mat-cell *matCellDef="let row">
+                    <strong>{{ row.days }}</strong>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columns"></tr>
+            <tr mat-row *matRowDef="let row; columns: columns"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" [attr.colspan]="columns.length">No overlapping pairs found.</td>
+            </tr>
+        </table>
+    </mat-card-content>
+</mat-card>
