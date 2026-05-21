@@ -39,7 +39,4 @@ public class DateCache {
         return cache.size();
     }
 
-    public void clear() {
-        cache.clear();
-    }
 }

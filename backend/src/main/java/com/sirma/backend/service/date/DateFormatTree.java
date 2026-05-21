@@ -32,10 +32,6 @@ public class DateFormatTree {
         return match != null ? match : allFormatters;
     }
 
-    public Map<String, List<DateTimeFormatter>> index() {
-        return bySignature;
-    }
-
     static Map<String, List<DateTimeFormatter>> buildIndex(List<DateTimeFormatter> formatters) {
         List<LocalDate> samples = List.of(
                 LocalDate.of(2014, 1, 5),

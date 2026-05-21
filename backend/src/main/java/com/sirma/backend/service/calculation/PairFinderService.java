@@ -76,7 +76,7 @@ public class PairFinderService {
             }
         }
 
-        if (candidates.isEmpty() || max <= 0) {
+        if (candidates.isEmpty()) {
             return List.of();
         }
 
@@ -89,7 +89,7 @@ public class PairFinderService {
         }
         winners.sort(Comparator.<PairAggregate>comparingInt(p -> p.pair().a())
                 .thenComparingInt(p -> p.pair().b())
-                .thenComparingInt(p -> p.breakdown().get(0).projectId()));
+                .thenComparingInt(p -> p.breakdown().getFirst().projectId()));
         return winners;
     }
 }
