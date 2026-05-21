@@ -4,7 +4,7 @@ app:
     delimiter: ","
     max-size-mb: 50
   date-cache:
-    max-size: 100000
+    max-size: 1000
   calculation:
     inclusive-end-date: true
     parallelism: -1
